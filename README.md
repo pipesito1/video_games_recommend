@@ -16,7 +16,7 @@ Construimos el modelo de machine learning, utilizando los datos ya procesados. E
 ## Objetivos
 
 - **Transformaciones de Datos**: Limpiar y procesar el dataset, eliminando columnas innecesarias y optimizando el rendimiento, considerando la baja madurez de los datos (datos anidados, formato raw, sin procesos automatizados de actualización).
-  - [Link de descarga de Datasets (ETL aplicado)](#)
+  - [Link de descarga de Datasets (ETL aplicado)](#) 
   - [Diccionario de datos](#)
 
 - **Feature Engineering**: Realizar análisis de sentimiento en las reseñas de usuarios y crear una nueva columna 'sentiment_analysis'.
