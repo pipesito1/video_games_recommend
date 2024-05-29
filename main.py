@@ -73,8 +73,9 @@ def recomendacion_juego(id_de_producto:str):
         product_similarities = cosine_similarity(matriz)
         product_similarities = list(enumerate(product_similarities))
         similar_games = [producto.iloc[i[0]] for i in product_similarities]
-        print("Los productos más similares al producto son:")
-        print (similar_games[1:6])
-    else:         
-        print("Producto no encontrado")
+    
+    games = [i['title'] for i in similar_games]
+    dictionary = {'los 5 juego mas similares': games[:5]}
+
+    return dictionary
 
