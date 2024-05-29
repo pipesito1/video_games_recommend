@@ -72,9 +72,10 @@ def recomendacion_juego(id_de_producto:str):
         matriz = vector.fit_transform(genres_p)
         product_similarities = cosine_similarity(matriz)
         product_similarities = list(enumerate(product_similarities))
-        similar_games = [producto.iloc[i[0]] for i in product_similarities]
-    
-    games = [i['title'] for i in similar_games]
+        games = list()
+        for i in product_similarities:
+            games.append(producto.iloc[i[0]]['title'])
+            
     dictionary = {'los 5 juego mas similares': games[:5]}
 
     return dictionary
