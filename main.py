@@ -45,3 +45,36 @@ def developer(desarrollador: str):
         }
     
     return result
+
+@app.get('/recomendacion_juego/{id_de_producto}', tags=['GET'])
+
+def recomendacion_juego(id_de_producto:str):
+    modelo = pd.read_parquet('dataSet/steam_game_clean.parquet')
+    
+    game = modelo[modelo['id'] == id_de_producto]
+    # Extraer el género del juego
+    if game.empty:
+        print("Producto no encontrado")
+        return
+    
+    genres = game['genres'].iloc[0]  # Obtener el primer elemento, ya que 'genres' es una serie
+    
+    # Para hacer recomendaciones, puedes buscar los productos más similares a un producto dado
+    
+    producto = modelo[modelo['genres'] == genres]
+
+    if not producto.empty:
+        product_index = producto.index[0]
+        genres_p = producto['genres']
+        #instanceo el vectoridador para utilizarlo
+        vector = TfidfVectorizer()
+        #tranforma en numeros las palabras para que el modelo entienda 
+        matriz = vector.fit_transform(genres_p)
+        product_similarities = cosine_similarity(matriz)
+        product_similarities = list(enumerate(product_similarities))
+        similar_games = [producto.iloc[i[0]] for i in product_similarities]
+        print("Los productos más similares al producto son:")
+        print (similar_games[1:6])
+    else:         
+        print("Producto no encontrado")
+
