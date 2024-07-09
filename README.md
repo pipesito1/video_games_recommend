@@ -1,6 +1,6 @@
 
 # JESUS FELIPE SEPULVEDA ALVAREZ
-
+<img src="C:\Users\BORDADO Y ESTAMPADO\Desktop\streamlit\banner22.jpg">
 ## Descripción del Proyecto
 
 Este proyecto cubre todas las fases del ciclo de vida de un proyecto de Machine Learning. El resultado final es una API desplegada en Render, la cual permite realizar consultas a los registros de una base de datos de la plataforma Steam. Además, se desarrolló un modelo de recomendación de videojuegos basado en la similitud del coseno, accesible también a través de la API.
